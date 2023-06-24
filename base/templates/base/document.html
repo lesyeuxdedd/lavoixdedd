@@ -1,0 +1,40 @@
+{%extends 'base/common/main.html'%} {%block content%}
+<div class="docs-wrapper">
+<div id="docs-sidebar" class="docs-sidebar">
+    <div class="top-search-box d-lg-none p-3">
+        <form class="search-form">
+            <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+    <nav id="docs-nav" class="docs-nav navbar">
+        <ul class="section-items list-unstyled nav flex-column pb-3">
+            <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1">
+                <span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span><span>{{post.topic}}</span></a>
+            </li>
+            {%for p in related_posts%}
+            {%if p.slug == post.slug%}
+            <li class="nav-item active"><a class="nav-link " href={%url 'document' p.slug %}>{{p.title}}</a></li>
+            {%else%}
+            <li class="nav-item"><a class="nav-link " href={%url 'document' p.slug %}>{{p.title}}</a></li>
+            {%endif%}
+            {%endfor%}
+        </ul>
+
+    </nav><!--//docs-nav-->
+</div><!--//docs-sidebar-->
+<div class="docs-content"> 
+    <div class="container"> 
+<article class="docs-article">
+<div id="section-1" class="container">
+    
+        <h2>{{post.title}}</h2>
+        <hr><br>
+        {{post.body|safe}}
+        <hr>
+    </article>
+    <!--//docs-article-->
+
+</div></div></div>
+</div>
+{%endblock content%}
