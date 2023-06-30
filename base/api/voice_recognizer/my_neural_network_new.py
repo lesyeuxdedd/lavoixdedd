@@ -150,6 +150,10 @@ def get_speaker_encoder(name="jennie"): #function to get encoder(model)
         return Lisa(nhi_config.MODEL_DICT["lisa"]["path"]).to(nhi_config.DEVICE)
     elif name=="rose":
         return Rose(nhi_config.MODEL_DICT["rose"]["path"]).to(nhi_config.DEVICE)
+    elif name=="momo":
+        return MomoTzuyu(nhi_config.MODEL_DICT["momo"]["path"]).to(nhi_config.DEVICE)
+    elif name=="tzuyu":
+        return MomoTzuyu(nhi_config.MODEL_DICT["tzuyu"]["path"]).to(nhi_config.DEVICE)
     
     
 
